@@ -1,11 +1,11 @@
 # Tableau Summary
-This file is a summary of Tableau features (`what it can do`), NOT an instruction on how to use each of the features. It is intended to give reader an overview of what they can do in Tableau, and therefore know what keywords to search for in Google Search or Tableau Documentation go to learn how to use it. 
+This file is a summary of Tableau features (`what it can do`), NOT an instruction on how to use each of the features. It is intended to give reader an overview of what they can do in Tableau, and therefore know what keywords to search for in Google Search or Tableau Documentation go to learn it. It contains `no redundanct sentencts, no BS`. 
 
 This file is mainly intended for Tableau Desktop, because a senior analyst told me this is the most commonly used Tableau version among his projects over the past 10 years. 
 
 This file will be updated daily until complete.
 
-## Connect to data
+## 🏷 Connect to data
 Tableau supports connecting to `hundreds of data sources`, including a number of different `flat file types` as well as a wide range of `server-based data sources`. E.g., to your computer in a spreadsheet or a text file, or in a database on a server. 
 
 Two data connection options: use `live connection (default)`, or use an `extract`. 
@@ -13,40 +13,6 @@ Two data connection options: use `live connection (default)`, or use an `extract
 A `live connection` is a direct connection to your data, best used when you want to `leverage a high performance database’s capabilities`, or get `real time changes` in viz (when you refresh it...). Sometimes, connecting live can result in a slow experience, depending on the database. You can `manually refresh` the live connection; Tableau will also `refresh the data automatically each time you open` the workbook.
 
 An `extract` is a compressed snapshot of data stored locally. Useful when you `connect to a slow database` or when you want to `take query load off critical systems`. You can also choose to `import only some of the data` to the extract. 
-
-### Data extract
-A `data extract` is a local subset of a data source: 
-- You can create extracts that contain `billions of rows` of data.
-- Can be `faster` than working with the original data, because they are usually `smaller` than the original data source. Generally experience `better performance` than the live connections to the original data.
-- Allow you to take advantage of `additioanl functionality` that's not available or supported by the original data, such as the ability to compute a distinct count.
-- Allow you to save and work with the data `locally` when the original data is not available. Provide `offline access`, `portable`. 
-- An extract is a subset of the data, which `limits access to the remainder of the data`. This can aid in data security, administration, and load on workbooks.
-- When the original data changes, you need to `manually refresh` the extract. Extracts can be configured to be `fully refreshed`, replacing all of the data with what’s in the original data source, or `incrementally refreshed`, adding just the new rows since the previous refresh. For `Tableau Desktop`, you can `automate extract refreshes` using the Tableau Data Extract Command Line Utility. For `web authoring`, you can `schedule refresh task`s for `published` extract data sources and published workbooks that connect to extracts. 
-- Unfamiliar users `may not realize that some data has been filtered` from the original data source. A good design practice for extracts is to `inform the end user` about what is included and not included in the extract via notes or instructions in the views and dashboards.
-
-Beginning with Tableau version 10.5, when you create a new extract, it uses the `.hyper format`, which takes advantage of the improved data engine which supports faster analytical and query performance for larger data sets. When you perform an extract-related task on a (old) `.tde` format using Tableau version 10.5 or later, the extract is `upgraded to a .hyper` format. After a .tde extract is upgraded to a .hyper extract, it `can't be reverted back`. 
-
-### Logical tables vs. physical tables in an extract
-Two ways to store data in extract: `logical tables` or `physical tables`:
-- `Recommended:  Logical tables`, which is the default.
-- The `Physical tables` option should be used `sparingly` to help with specific situations such as when the `size of your extract is larger than expected`.
-
-**Logical tables:**
-
-If you use `Logical tables` when your extract contains `joins`, the `joins are applied` when the extract is created.
-
-Use Logical tables when:
-
-- you want to limit the amount of data in your extract with additional extract properties like `extract filters, aggregation, Top N`, or other features that require denormalized data.
-- your data uses `pass-through functions (RAWSQL)`.
-
-**Physical tables:**
-
-Physical table uses one extract table for each physical table in the data source. If you use the physical tables, `joins are performed at query time`. Also, you `cannot append data` to it.
-
-Use Physical tables when:
-- your extract has `tables created with one or more equality joins` and meets all of these conditions: All joins between physical tables are equality (=) joins; Data types used for relationships or joins are identical; No pass-through functions (RAWSQL) used; No incremental refresh configured; No extract filters configured; No Top N or sampling configured
-- the size of your extract is `larger than expected`.
 
 ### Metadata
 Tableau assigns `metadata` to the data that you bring into it; you can edit the metadata to decide `how the fields to look and function` in a view. It includes the `names of fields`, `data types`, `aggregation information`, and `default display properties`, etc. 
@@ -67,7 +33,7 @@ The `Columns and Rows shelves` let you drop fields to create structure of viz.
 
 The `Marks card` let you drop fields to add context and detail to the viz, such as setting mark type, color, size, shape, text, and detail. 
 
-## Customize data source
+## 🏷 Customize data source
 Could do cleanup and organization as you work with the underlying source data, include customizations like `connection information`, `organizational or metadata changes`, `attributes`, or `aliases`. Tableau Desktop allows us to `save these data source customizations for reuse`. It preserves the customizations you make, but it does not change the underlying source data.
 
 Common `changes to data attributes` fall into several categories, all of which are `saved in a Tableau data source (.tds) file`:
@@ -110,32 +76,96 @@ Not included in a .tds file:
 ### Refresh a viz to reflect new data
 Tableau is flexible about `data source updates`. `Adding more columns or rows` to the data source won’t break the viz. 
 
-However, `there are some updates that Tableau can’t accommodate`, like `changes to the structure of the dataset`. If we `rename or remove columns`, Tableau will not understand these updates. Viz will only be impacted by changes to fields that is uses. It can be fixed by replace references for that field. 
+However, `there are some updates that Tableau can’t accommodate`, like `changes to the structure of the dataset`, such as `rename or remove columns`. Viz will only be impacted by changes to fields that is uses. It can be fixed by replace references for that field. 
 
-## Organize data 
+### Data extract
+A `data extract` is a local subset of a data source: 
+- You can create extracts that contain `billions of rows` of data.
+- Can be `faster` than working with the original data, because they are usually `smaller` than the original data source. Generally experience `better performance` than the live connections to the original data.
+- Allow you to take advantage of `additioanl functionality` that's not available or supported by the original data, such as the ability to compute a distinct count.
+- Allow you to save and work with the data `locally` when the original data is not available. Provide `offline access`, `portable`. 
+- An extract is a subset of the data, which `limits access to the remainder of the data`. This can aid in data security, administration, and load on workbooks.
+- When the original data changes, you need to `manually refresh` the extract. Extracts can be configured to be `full refresh` (default, can take long time for large extracts), replacing all of the data with what’s in the original data source, or `incremental refresh`, adding just the new rows since the previous refresh. An incremental refresh is only possible when you are extracting `all rows` in the database. For `Tableau Desktop`, you can `automate extract refreshes` using the Tableau Data Extract Command Line Utility. For `web authoring`, you can `schedule refresh task`s for `published` extract data sources and published workbooks that connect to extracts. 
+- Unfamiliar users `may not realize that some data has been filtered` from the original data source. A good design practice for extracts is to `inform the end user` about what is included and not included in the extract via notes or instructions in the views and dashboards.
 
-## Create filters
+**Best practices for incremental extract refreshes:**
+- Use full refresh whenever possible. 
+- Incremental refreshed extracts should be fully refreshed at regular intervals (e.g. every weekend or monthly) to maximize performance.
 
-## Build views
+Beginning with Tableau version 10.5, when you create a new extract, it uses the `.hyper format`, which takes advantage of the improved data engine which supports faster analytical and query performance for larger data sets. When you perform an extract-related task on a (old) `.tde` format using Tableau version 10.5 or later, the extract is `upgraded to a .hyper` format. After a .tde extract is upgraded to a .hyper extract, it `can't be reverted back`. 
 
-## Map geographic data
+To create an extract, you can do it from the `Data Source page`, or from the `worksheet` so you can choose to only extract the part of data used in the view. Start the extract creation from the worksheet allows you to `configure the extract before Tableau creates it` - can save time for large data sources. You can edit a  extract after you have created it. 
 
-## Create calculated fields
+In web authoring (requires Creator role), you can create extracts directly with default extract settings. Extract refreshes for web authors requires Tableau Bridge. 
 
-## Apply Table calculations & Seconary table calculations
+**Best practices for creating a data extract:**
+- `Anggregate` data: so it is much smaller than the transaction level data extract,  which improves query performance.
+- `Hide` all unused fields: it can speed extract creation and to preserve storage space.
+- `Filter` data:  remove data you do not need.
 
-## Create Level of Detail (LOD) expressions
+### Logical tables vs. physical tables in an extract
+Two ways to store data in extract: `logical tables` or `physical tables`:
+- `Recommended:  Logical tables`, which is the default.
+- The `Physical tables` option should be used `sparingly` to help with specific situations such as when the `size of your extract is larger than expected`.
 
-## Apply analytics
+**Logical tables:**
 
-## Connect to multiple data sources
+If you use `Logical tables` when your extract contains `joins`, the `joins are applied` when the extract is created.
+
+Use Logical tables when:
+
+- you want to limit the amount of data in your extract with additional extract properties like `extract filters, aggregation, Top N`, or other features that require denormalized data.
+- your data uses `pass-through functions (RAWSQL)`.
+
+**Physical tables:**
+
+Physical table uses one extract table for each physical table in the data source. If you use the physical tables, `joins are performed at query time`. Also, you `cannot append data` to it.
+
+Use Physical tables when:
+- your extract has `tables created with one or more equality joins` and meets all of these conditions: All joins between physical tables are equality (=) joins; Data types used for relationships or joins are identical; No pass-through functions (RAWSQL) used; No incremental refresh configured; No extract filters configured; No Top N or sampling configured
+- the size of your extract is `larger than expected`.
+
+## 🏷 Organize data 
+### Group
+A group lets you combine several `members` (values) `inside a single dimension (field)` into `a single data point` or `category type`, `aka, combine into one memeber`, by `creating a new dimension` that didn’t originally exist in your data. The new group can be used repeatedly in vizzies. Existing groups can be edited. 
+
+Groups in Tableau are represented by a `paper clip 📎`. In the `Data pane`, the paper clip to the left of the field indicats a grouped field. In the `tooltip` in the `view`, the paper clip is the `Group Members button` that creates a group.
+
+Groups can be used in diverse ways to answer questions about your data:
+- `Ad hoc analysis` - Grouping the destinations that loses the most airline packages that allows the company to discover what they have in common. Group sales of previous exhibits by audience to determine which brought the most visitors in the past. 
+- `"What if" scenarios`: Determine what will bring the most profit for future investments by grouping long list of products into categories, to make informed decisions based upon overall profit. 
+- `Correcting data errors`: Avoid data duplication (typos): Grouping CA, Calif., and California into one data point. Name changes: A product is renamed, but product itself didn't change - grouping allow to see sales before and after the name change.
+- `Reuse`: After the groups are created, they can be used in other ways. 
+
+Groups can be created using:
+- `A field in the Data pane`: good for long lists, allows search (exact match, contains, starts with), can drag a member into an existing group in the window, can choose to create a "Other" group to group all the un-grouped members. 
+- `Labels or marks in the view`: when you select multiple labels or marks, use the pop up tooltip window to group them. During this process, a group contains selected items is created, also a group called others is created. The newly created group field is instantly used in the view. 
+
+### Hierarchy
+
+
+## 🏷 Create filters
+
+## 🏷 Build views
+
+## 🏷 Map geographic data
+
+## 🏷 Create calculated fields
+
+## 🏷 Apply Table calculations & Seconary table calculations
+
+## 🏷 Create Level of Detail (LOD) expressions
+
+## 🏷 Apply analytics
+
+## 🏷 Connect to multiple data sources
 You can also connect to multiple data sources at a time and use relationships, joins, unions, and blends to work with the data. 
 
-## Create dashboards
+## 🏷 Create dashboards
 
-## Create stories
+## 🏷 Create stories
 
-## Share and publish content
+## 🏷 Share and publish content
 
 
 
