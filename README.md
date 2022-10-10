@@ -1,5 +1,5 @@
 # Tableau Summary
-This file is a summary of Tableau features (`what it can do`), NOT an instruction on how to use each of the features. It is intended to give reader an overview of what they can do in Tableau, and therefore know what keywords to search for in Google Search or Tableau Documentation go to learn it. It contains `no redundanct sentencts, no BS`. 
+This file is a summary of Tableau features (`what it can do`), NOT an instruction on how to use each of the features. It is intended to give reader an overview of what they can do in Tableau, and therefore know what keywords to search for in Google Search or Tableau Documentation go to learn it. It contains `no redundanct sentences, no BS`. 
 
 This file is mainly intended for Tableau Desktop, because a senior analyst told me this is the most commonly used Tableau version among his projects over the past 10 years. 
 
@@ -129,7 +129,7 @@ Use Physical tables when:
 ### Group
 A group lets you combine several `members` (values) `inside a single dimension (field)` into `a single data point` or `category type`, `aka, combine into one memeber`, by `creating a new dimension` that didn’t originally exist in your data. The new group can be used repeatedly in vizzies. Existing groups can be edited. 
 
-Groups in Tableau are represented by a `paper clip 📎`. In the `Data pane`, the paper clip to the left of the field indicats a grouped field. In the `tooltip` in the `view`, the paper clip is the `Group Members button` that creates a group.
+Groups in Tableau are represented by a `paper clip`: <img src="images/group.png" style="width: 2%">. In the `Data pane`, the paper clip to the left of the field indicats a grouped field. In the `tooltip` in the `view`, the paper clip is the `Group Members button` that creates a group.
 
 Groups can be used in diverse ways to answer questions about your data:
 - `Ad hoc analysis` - Grouping the destinations that loses the most airline packages that allows the company to discover what they have in common. Group sales of previous exhibits by audience to determine which brought the most visitors in the past. 
@@ -142,9 +142,42 @@ Groups can be created using:
 - `Labels or marks in the view`: when you select multiple labels or marks, use the pop up tooltip window to group them. During this process, a group contains selected items is created, also a group called others is created. The newly created group field is instantly used in the view. 
 
 ### Hierarchy
+A hierarchy is an arrangement of data fields in a hierarchical format with an "above" and "below" structure. A hierarchy preserves the ordering, creates drilling capabilities in the visualization,  and it can be used over and over. Its icon: <img src="images/hierarchy.png" style="width: 2%">. 
 
+One of the most useful ways to navigate hierarchies is to drill down using the [+] or drill up using the [-] to hide or display the related fields. The symbol appears on the left of the field when it's on a shelf, on the Marks card, or in the view. 
 
-## 🏷 Create filters
+Date hierarchies: For relational data sources, dates and times are automatically placed in the dimensions area of the Data pane and are identified by the date icon <img src="images/date.png" style="width: 3%">, or date-time icon <img src="images/datetime.png" style="width: 3%">, and can be drilled up and down as a hierarchy. Date fields can consist of Year, Quarter, Month, Day, Time. Notice that the list order must be preserved for the hierarchy to make sense.
+
+Common examples of subjects with hierarchical categories: Biological classification, Family tree, Geographical locations. 
+
+## 🏷 Filters
+Filtering does not remove or modify data, it just changes the data that appears in your view. 
+
+### Filter types
+- **Extract filters**
+When creating an extract, filter out data unrelevant data. 
+
+- **Data source filters**
+Reduce the amount of data being fed into Tableau. Can be used to filter out sensitive data from data source. For systems that rely heavily on partitions or indexing, data source filters may yield tremendous control over the performance of queries issued by Tableau. 
+
+- **Context filters**
+All filters in Tableau are computed independently. Context filter is processed first. If you have two dimension filters, one on Region and another top 3 on products, both filters will apply to the entire data set, e.g: product A, D, F are globally top 3, but only A lives through the region filter, so the final result will show only product A. If you want to see the top 3 products in each region, need to set Region as the context filter, in this way, product A, B, C might be the top 3 and all will show up. Context filters are greyed out in the filter pane. 
+
+- **Dimension filters**
+Dimensions contain discrete categorical data, so filtering it involves selecting the values to include or exclude. For example, use a dimension filter to show sales in specific regions.
+
+- **Measure filters**
+Measures contain quantitative data, so filtering it involves selecting a range of values that you want to include. For example, show only products that have sales greater than 10,000.
+
+- **Date filters**
+Date filters allow you to filter data by a range of dates, relative dates, or exact dates. For example, show products that have been ordered starting January 2017. 
+
+- **Table Calculation filters**
+Applied after the view has been produced. Suitable if you want to filter the view without filtering the underlying data.
+
+### Order of Filters
+<img src="images/filter-order.png" style="width: 60%">
+
 
 ## 🏷 Build views
 
