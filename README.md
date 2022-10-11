@@ -125,11 +125,11 @@ Use Physical tables when:
 - your extract has `tables created with one or more equality joins` and meets all of these conditions: All joins between physical tables are equality (=) joins; Data types used for relationships or joins are identical; No pass-through functions (RAWSQL) used; No incremental refresh configured; No extract filters configured; No Top N or sampling configured
 - the size of your extract is `larger than expected`.
 
-## 🏷 Organize data 
+## 🏷 Organize data and create filters
 ### Group
 A group lets you combine several `members` (values) `inside a single dimension (field)` into `a single data point` or `category type`, `aka, combine into one memeber`, by `creating a new dimension` that didn’t originally exist in your data. The new group can be used repeatedly in vizzies. Existing groups can be edited. 
 
-Groups in Tableau are represented by a `paper clip`: <img src="images/group.png" style="width: 2%">. In the `Data pane`, the paper clip to the left of the field indicats a grouped field. In the `tooltip` in the `view`, the paper clip is the `Group Members button` that creates a group.
+Groups in Tableau are represented by a `paper clip`: <img src="images/group.png" style="width: 1.5%">. In the `Data pane`, the paper clip to the left of the field indicats a grouped field. In the `tooltip` in the `view`, the paper clip is the `Group Members button` that creates a group.
 
 Groups can be used in diverse ways to answer questions about your data:
 - `Ad hoc analysis` - Grouping the destinations that loses the most airline packages that allows the company to discover what they have in common. Group sales of previous exhibits by audience to determine which brought the most visitors in the past. 
@@ -146,14 +146,14 @@ A hierarchy is an arrangement of data fields in a hierarchical format with an "a
 
 One of the most useful ways to navigate hierarchies is to drill down using the [+] or drill up using the [-] to hide or display the related fields. The symbol appears on the left of the field when it's on a shelf, on the Marks card, or in the view. 
 
-Date hierarchies: For relational data sources, dates and times are automatically placed in the dimensions area of the Data pane and are identified by the date icon <img src="images/date.png" style="width: 3%">, or date-time icon <img src="images/datetime.png" style="width: 3%">, and can be drilled up and down as a hierarchy. Date fields can consist of Year, Quarter, Month, Day, Time. Notice that the list order must be preserved for the hierarchy to make sense.
+Date hierarchies: For relational data sources, dates and times are automatically placed in the dimensions area of the Data pane and are identified by the date icon <img src="images/date.png" style="width: 2%">, or date-time icon <img src="images/datetime.png" style="width: 2%">, and can be drilled up and down as a hierarchy. Date fields can consist of Year, Quarter, Month, Day, Time. Notice that the list order must be preserved for the hierarchy to make sense.
 
 Common examples of subjects with hierarchical categories: Biological classification, Family tree, Geographical locations. 
 
-## 🏷 Filters
+### Filters
 Filtering does not remove or modify data, it just changes the data that appears in your view. 
 
-### Filter types
+Filter types
 - **Extract filters**
 When creating an extract, filter out data unrelevant data. 
 
@@ -175,9 +175,25 @@ Date filters allow you to filter data by a range of dates, relative dates, or ex
 - **Table Calculation filters**
 Applied after the view has been produced. Suitable if you want to filter the view without filtering the underlying data.
 
-### Order of Filters
+Order of Filters:
+
 <img src="images/filter-order.png" style="width: 60%">
 
+Dimension filter: The easiest way is to include or exclude data points (marks) from your view. Another way is to drag the dimension field from the Data pane to the Filters shelf.
+
+Filters can be created on fields that are not in the view. On Tableau Desktop, you can right click fields in data pane and select show filter. Filters can be reused across worksheets (not default). In filter window, 'Use all' is dynamic and adapts to changes, 'Select from' is static and ignores changes. 
+
+You can customize the look and interaction of a filter. The Remove Filter option removes the filter from the Filters shelf. Hide Card/Filter only removes the filter card from the view. 
+
+Tableau can create filters on continuous date values or discrete date parts. For continuous data filter, you can filter by relative dates, range of dates, starting date, ending date, and special (null). 
+
+### Sorting
+Computed sort (dynamic) and manual sort. As an author, you can disable the sort icons in published content.
+
+When the values to be sorted occur in multiple panes in a view, there are two ways to sort: nested sort (considers each pane independently and sorts the rows per pane) and non-nested sort (default, considers the value across panes and will have the same order of values per pane).
+
+### Set
+Sets are custom fields that define a subset of data - for viewing and highlighting data that meet specific criteria. For instance, sets can help you identify customers with sales exceeding a certain threshold. 
 
 ## 🏷 Build views
 
