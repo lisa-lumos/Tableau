@@ -193,9 +193,34 @@ Computed sort (dynamic) and manual sort. As an author, you can disable the sort 
 When the values to be sorted occur in multiple panes in a view, there are two ways to sort: nested sort (considers each pane independently and sorts the rows per pane) and non-nested sort (default, considers the value across panes and will have the same order of values per pane).
 
 ### Set
-Sets are custom fields that define a subset of data - for viewing and highlighting data that meet specific criteria. For instance, sets can help you identify customers with sales exceeding a certain threshold. 
+Sets are custom binary fields that define a subset of data - for viewing and highlighting data that meet specific criteria. For instance, sets can help you identify customers with sales exceeding a certain threshold. Set can be dynamic (members change with data, can be based on single or multiple dimensions), or fixed (members do not change with data, based on a single dimension only). Sets can be reused throughout the workbook, and it is part of the metadata and saved in .tds file. Sets can be used like any other field in a view (to encode marks, use in calculated fields, use as dimensions (in/out a set), use as filters). 
+
+Use cases for sets:
+- View or highlight data that meets a specific computed condition, for example, a set  contains customers with sales exceeding a certain amount.
+- Monitor key data points, for example, high- or low-performing sales regions.
+- Show members in a field that meets a few conditions, e.g., items that are top sellers but are also highly discounted.
+- part-to-whole comparison
+- part-to-part comparison (set to set)
+
+You can create a fixed set by selecting marks in a view or using the Create Set option for a dimension from the Data pane. 
+
+In Tableau Desktop, you can combine two sets - you create a new set containing either the combination of all members, just the members that exist in both, or members that exist in one set but not the other. To combine two sets, they must be members of the same field.
+
+To give your audience the ability to quickly modify members of a dynamic set, you can also display a set control. A set control is a worksheet card that is very similar to a parameter control or filter card.
+
+Based on the filter order, Tableau applies set filters before dimension and measure filters. 
 
 ## 🏷 Build views
+### Visualize time-based data
+Tableau provides two ways to visualize date fields: as continuous date values or discrete date parts (default); they are interchangeable in the data pane. Continuous date values, also called date values, represent the chronological progression of time. Date values appear as green fields when placed on a shelf. Discrete date parts are distinct units of time contained in your data. 
+
+Use continuous date values to visualize how your data changes over a range of time. Use discrete date parts when you want to compare a measure for specific units of time
+
+When you add a date field to a view, Tableau automatically selects the highest discrete date part (default) in your data to display. You can change it. 
+
+Note that selecting "Discrete" or "Continuous" from the date field drop-down menu will not change whether a date field is used as a discrete date part or a continuous date value in the view, it will only change how the data is displayed (as headers or axis). You need to select explicitly the lod of the continuous date or discrete date in this dropdown menu. 
+
+If your organization uses a week-based calendar, with Monday as the first day of the week, you can specify the ISO-8601 calendar as your preference for your data source. This change will apply to all worksheets using the data source, affecting date fields, context menus, filters, and so on. 
 
 ## 🏷 Map geographic data
 
