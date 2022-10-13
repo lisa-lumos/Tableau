@@ -222,6 +222,23 @@ Note that selecting "Discrete" or "Continuous" from the date field drop-down men
 
 If your organization uses a week-based calendar, with Monday as the first day of the week, you can specify the ISO-8601 calendar as your preference for your data source. This change will apply to all worksheets using the data source, affecting date fields, context menus, filters, and so on. 
 
+You can create `custom date fields` in Tableau Desktop, using discrete dates part or continuous date values, and use them in views so they provide users the exact experience you want. Custom date field has a plus sign in its icon. 
+
+You can create a custom date hierarchy from discrete date parts. 
+
+The Data pane always contains several fields that do not exist in your original data source, two of these are Measure Values and Measure Names - they serve as containers for the measures in the Data pane. Tableau automatically creates these two fields for each data source when you connect it to a workbook. 
+
+The Measure Values field is a measure that contains the values of the measures. The Measure Names field is a dimension that contains the names of the measures. Note that it does not include measures such as Latitude, which do not aggregate the same way as other measures.
+
+Text tables can contain up to fifty measures on Rows and sixteen on Columns. Measures in a text table use the text mark.
+
+You can build dual-axis charts in Tableau - you need two measures and one/more dimensions. 
+
+
+
+
+
+
 ## 🏷 Map geographic data
 
 ## 🏷 Create calculated fields
