@@ -234,10 +234,19 @@ Text tables can contain up to fifty measures on Rows and sixteen on Columns. Mea
 
 You can build dual-axis charts in Tableau - you need two measures and one/more dimensions. 
 
+You can add annotation to data points in a view. 
 
+Text tables can be used for drilling down from summary visualizations to more detailed information, such as when a text table is used as a filter in part of a dashboard. You can create a text table from an existing view or from scratch. You can use the Analysis menu to add these aggregations (such as totals, subtotals, or averages of columns and rows to provide users with high-level information) to a text table.
 
+A highlight table enables you to apply color to a text table when you need to show every value but also want to show patterns or extreme values.
 
+Pie charts are built solely on the Marks card (Angle); no fields are placed on rows or columns.
 
+Tree maps display data in nested rectangles. Dimensions define the structure of the tree map, and measures define the size and color of the individual rectangles. Tree maps and pie charts are good choices for showing part-to-whole comparisons. But, unlike pie charts, tree maps are good for displaying data sets with long tails, those that have many small values that contribute to the whole dataset. The basic building blocks for a tree map are the Automatic or Square mark type, one measure on Color and Size, and one dimension on Detail. By default, when building a tree map, negative values are hidden from the view. In Tableau Desktop you can click the button on the right bottom of the view, and choose to Use Absolute Values. 
+
+You can build word clouds and packed bubble charts from tree maps by changing the mark type to text. 
+
+Bar-in-bar charts and bullet graphs have a similar goal: to compare two values in a bar chart-style view. In a bar-in-bar chart, you're usually comparing two measures against one another. In a bullet graph, you're usually comparing a measure against a goal or threshold which is a reference line, and can have reference bands. Both the bar-in-bar chart and the bullet graph are derived from the side-by-side bar chart, but the former two are visually less crowded and more direct—making the information easier to see and understand.
 
 ## 🏷 Map geographic data
 
