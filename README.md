@@ -249,6 +249,58 @@ You can build word clouds and packed bubble charts from tree maps by changing th
 Bar-in-bar charts and bullet graphs have a similar goal: to compare two values in a bar chart-style view. In a bar-in-bar chart, you're usually comparing two measures against one another. In a bullet graph, you're usually comparing a measure against a goal or threshold which is a reference line, and can have reference bands. Both the bar-in-bar chart and the bullet graph are derived from the side-by-side bar chart, but the former two are visually less crowded and more direct—making the information easier to see and understand.
 
 ## 🏷 Map geographic data
+### Symbol and Filled maps
+Two map types in Tableau: `symbol maps` (uses symbols to represent a central point of a geographic region, effective for showing quantitative data for individual locations,  work best with data containing large variations of values) and `filled maps` (shows boundaries of a geographic region, filled with color, ideal for showing ratio data). 
+
+When building map views, Tableau supports any latitude and longitude coordinates, as long as they are in decimal degrees. Tableau can also recognize and geocode the following geographic information types: Worldwide airport codes, Cities, Countries , Regions , Territories, States , Provinces, Some postcodes and second-level administrative districts (county-equivalents) , Core Based Statistical Areas (CBSA), U.S. area codes, Metropolitan Statistical Areas (MSA) , Congressional districts , Zip codes. 
+
+For a symbol map, use the following building blocks in the Tableau workspace:
+| Place | Content |
+| ----------- | ----------- |
+| Columns shelf | Longitude (continuous measure, longitude geographic role assigned) |
+| Rows shelf | Latitude (continuous measure, latitude geographic role assigned) |
+| Detail | One or more dimensions |
+| Size | Measure (aggregated) |
+| Mark type | Automatic |
+
+For a filled map, use the following building blocks in the Tableau workspace:
+| Place | Content |
+| ----------- | ----------- |
+| Columns shelf | Longitude (continuous measure, longitude geographic role assigned) |
+| Rows shelf | Latitude (continuous measure, latitude geographic role assigned) |
+| Detail | One or more geographic units (dimensions with geographic roles assigned) |
+| Size | Measure or dimension |
+| Mark type | Automatic or Map |
+	
+You can resolve ambiguous geocoded location data by: Specifying the Country/Region and/or State/Province for your data.
+
+A filled map shows ratio or aggregated data in shapes known as polygons. The polygons can be countries, regions, states, or almost any area that can be geocoded in Tableau. (An exception is cities, which won't allow for a filled area.) The distribution you specify for the color of the polygons (gradients vs. stepped, and the number of steps) highly affects how people interpret your data. To make the variation more apparent, reduce the number of visible color shades on the map. The level of detail you specify in a filled map determines the patterns you want to see in the data. To simplify the pattern, aggregate up to a higher level of detail. To make smaller trends more visible, aggregate down to a lower level of detail. 
+	
+### Density Maps
+A density map shows the frequency of marks in an area. By grouping overlapping marks, and color-coding them based on the amount of overlap, you can create a density map to reveal trends.
+
+Density maps are most effective when the location data is very precise, such as location coordinates in a limited space. For example, events associated with specific street-level addresses. Additionally, density maps work best where the specific locations change continuously and smoothly across space, rather than values constrained to discrete locations such as district, borough, or neighborhood. The density mark can be useful with scatter plots, too, especially if you’re more interested in the patterns than the outliers.
+
+For a density map, use the following building blocks in the Tableau workspace:
+| Place | Content |
+| ----------- | ----------- |
+| Columns shelf | Longitude (continuous measure, longitude geographic role assigned) |
+| Rows shelf | Latitude (continuous measure, latitude geographic role assigned) |
+| Detail | One or more fields with many underlying data points |
+| Mark type | Density |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 🏷 Create calculated fields
 
