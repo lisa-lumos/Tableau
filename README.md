@@ -289,22 +289,27 @@ For a density map, use the following building blocks in the Tableau workspace:
 | Detail | One or more fields with many underlying data points |
 | Mark type | Density |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 🏷 Create calculated fields
+Calculated fields allow you to create new fields from data that already exists in your data source. You can create calculated fields to compute a ratio, manipulate string and date fields, convert the data type of a field, and combine and aggregate data. A calculation, also known as a formula, includes some or all of these components: Fields, Functions, Operators, Parameters, Comments. After you build a calculated field, use it in your view just as you would any other field. 
 
-## 🏷 Apply Table calculations & Seconary table calculations
+You can also create ad-hoc calculations using existing fields or on an empty shelf in the view. To save an ad-hoc calculation for use in other workbook sheets, CTRL + drag it from the view to copy it to the Data pane, and you can rename it.
+
+String functions allow you to manipulate data made of text, or string data. Common string functions: LEFT (string, number), RIGHT (string, number), SPLIT (string, delimiter, idx of substring start from 1), CONTAINS (string, substring), REPLACE (string, substring, replacement), UPPER (string), LOWER (string), TRIM (string). 
+
+Type conversion functions allow you to convert fields from one data type to another. 
+
+
+
+
+
+
+
+
+
+
+
+
+## 🏷 Apply Table calculations & Secondary table calculations
 
 ## 🏷 Create Level of Detail (LOD) expressions
 
