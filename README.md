@@ -1,5 +1,5 @@
 # Tableau Summary
-This file is a summary of Tableau features (`what it can do`), NOT an instruction on how to use each of the features. It is intended to give reader an overview of what they can do in Tableau, and therefore know what keywords to search for in Google Search or Tableau Documentation go to learn it. It contains `no redundanct sentences, no BS`. 
+This file is a summary of Tableau features (`what it can do`), NOT an instruction on how to use each of the features. It is intended to give reader an overview of what they can do in Tableau, and therefore know what keywords to search for in Google Search or Tableau Documentation go to learn it. It contains `no redundant sentences, no BS`. 
 
 This file is mainly intended for Tableau Desktop, because a senior analyst told me this is the most commonly used Tableau version among his projects over the past 10 years. 
 
@@ -20,7 +20,7 @@ Tableau assigns `metadata` to the data that you bring into it; you can edit the 
 ### The Data Source page
 In the `data grid` in the `Data Source page`, Tableau shows `some of the metadata` for the dataset, such as `data role` and `field name`. Tableau distinguishes numbers from strings and dates from dates with timestamps etc. Tableau represents these data role assignments with an icon near the field label. For example, Tableau recognizes City as a geographic entity, and therefore assigns it a `Geographic Role` (a common data role), connecting that field to Tableau's generated latitude and longitude coordinates. Note: `This does not change the data type`, which will remain as a string in this case. You can `make edits to the metadata` right `from the data grid`, such as `changing data role` for a field, `rename` a field. 
 
-The `data grid view` and be switched to `metadata grid view`, which shows each field in a row, where you can `rename fields`, or `hide multipe fields at once`. Changes to the metadata in Tableau `don't impact the source data`.
+The `data grid view` and be switched to `metadata grid view`, which shows each field in a row, where you can `rename fields`, or `hide multiple fields at once`. Changes to the metadata in Tableau `don't impact the source data`.
 
 ### The Tableau workspace
 In `the Tableau workspace`, the `Data pane` on the left lists the fields in the data source, organized into `dimensions`(blue icons) and `measures`(green icons). You can `drag` the fields from the `Data pane` to the `cards` and `shelves` to begin creating viz. You can also `rename fields` from the data pane. 
@@ -82,7 +82,7 @@ However, `there are some updates that Tableau can’t accommodate`, like `change
 A `data extract` is a local subset of a data source: 
 - You can create extracts that contain `billions of rows` of data.
 - Can be `faster` than working with the original data, because they are usually `smaller` than the original data source. Generally experience `better performance` than the live connections to the original data.
-- Allow you to take advantage of `additioanl functionality` that's not available or supported by the original data, such as the ability to compute a distinct count.
+- Allow you to take advantage of `additional functionality` that's not available or supported by the original data, such as the ability to compute a distinct count.
 - Allow you to save and work with the data `locally` when the original data is not available. Provide `offline access`, `portable`. 
 - An extract is a subset of the data, which `limits access to the remainder of the data`. This can aid in data security, administration, and load on workbooks.
 - When the original data changes, you need to `manually refresh` the extract. Extracts can be configured to be `full refresh` (default, can take long time for large extracts), replacing all of the data with what’s in the original data source, or `incremental refresh`, adding just the new rows since the previous refresh. An incremental refresh is only possible when you are extracting `all rows` in the database. For `Tableau Desktop`, you can `automate extract refreshes` using the Tableau Data Extract Command Line Utility. For `web authoring`, you can `schedule refresh task`s for `published` extract data sources and published workbooks that connect to extracts. 
@@ -99,7 +99,7 @@ To create an extract, you can do it from the `Data Source page`, or from the `wo
 In web authoring (requires Creator role), you can create extracts directly with default extract settings. Extract refreshes for web authors requires Tableau Bridge. 
 
 **Best practices for creating a data extract:**
-- `Anggregate` data: so it is much smaller than the transaction level data extract,  which improves query performance.
+- `Aggregate` data: so it is much smaller than the transaction level data extract,  which improves query performance.
 - `Hide` all unused fields: it can speed extract creation and to preserve storage space.
 - `Filter` data:  remove data you do not need.
 
@@ -127,9 +127,9 @@ Use Physical tables when:
 
 ## 🏷 Organize data and create filters
 ### Group
-A group lets you combine several `members` (values) `inside a single dimension (field)` into `a single data point` or `category type`, `aka, combine into one memeber`, by `creating a new dimension` that didn’t originally exist in your data. The new group can be used repeatedly in vizzies. Existing groups can be edited. 
+A group lets you combine several `members` (values) `inside a single dimension (field)` into `a single data point` or `category type`, `aka, combine into one member`, by `creating a new dimension` that didn’t originally exist in your data. The new group can be used repeatedly in vizzies. Existing groups can be edited. 
 
-Groups in Tableau are represented by a `paper clip`: <img src="images/group.png" style="width: 1.5%">. In the `Data pane`, the paper clip to the left of the field indicats a grouped field. In the `tooltip` in the `view`, the paper clip is the `Group Members button` that creates a group.
+Groups in Tableau are represented by a `paper clip`: <img src="images/group.png" style="width: 2%">. In the `Data pane`, the paper clip to the left of the field indicates a grouped field. In the `tooltip` in the `view`, the paper clip is the `Group Members button` that creates a group.
 
 Groups can be used in diverse ways to answer questions about your data:
 - `Ad hoc analysis` - Grouping the destinations that loses the most airline packages that allows the company to discover what they have in common. Group sales of previous exhibits by audience to determine which brought the most visitors in the past. 
@@ -155,7 +155,7 @@ Filtering does not remove or modify data, it just changes the data that appears 
 
 Filter types
 - **Extract filters**
-When creating an extract, filter out data unrelevant data. 
+When creating an extract, filter out irrelevant data. 
 
 - **Data source filters**
 Reduce the amount of data being fed into Tableau. Can be used to filter out sensitive data from data source. For systems that rely heavily on partitions or indexing, data source filters may yield tremendous control over the performance of queries issued by Tableau. 
@@ -298,16 +298,11 @@ String functions allow you to manipulate data made of text, or string data. Comm
 
 Type conversion functions allow you to convert fields from one data type to another. 
 
+Tableau date parts include: 'year', 'quarter', 'month', 'dayofyear', 'day', 'weekday', 'week', 'hour', 'minute', 'second'.  Note that they must be singular, all lowercase, and wrapped in single quotation marks. Date functions include: DATEPART (returns a number), DATENAME (returns a string), DATEADD, DATEDIFF, DATETRUNC, MIN and MAX. 
 
+If you are using a .hyper extract, date functions can also be calculated using the ISO 8601 Standard format, which differs from the Gregorian calendar because of how it calculates the starting week of a year. 
 
-
-
-
-
-
-
-
-
+When Tableau automatically aggregates measure fields, SUM is the default aggregation. Aggregate functions allow you to summarize data by performing a calculation on a set of values at the level of detail in a view, and return a single value. For example, you might want to know the distinct count of attendees at your company’s annual conference over time. You can use the COUNTD function to calculate the distinct number of conference attendees and then break the visualization down by year. Aggregate functions: SUM, AVG, MEDIAN, COUNT, COUNTD, MIN, MAX.  
 
 ## 🏷 Apply Table calculations & Secondary table calculations
 
