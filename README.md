@@ -305,10 +305,28 @@ If you are using a .hyper extract, date functions can also be calculated using t
 When Tableau automatically aggregates measure fields, SUM is the default aggregation. Aggregate functions allow you to summarize data by performing a calculation on a set of values at the level of detail in a view, and return a single value. For example, you might want to know the distinct count of attendees at your company’s annual conference over time. You can use the COUNTD function to calculate the distinct number of conference attendees and then break the visualization down by year. Aggregate functions: SUM, AVG, MEDIAN, COUNT, COUNTD, MIN, MAX.  
 
 ## 🏷 Apply Table calculations & Secondary table calculations
+Table calculations are calculated fields that you apply to the values of a measure in a visualization. They compute the local data based on what is currently in the view. You can use table calculations to transform values to show rankings, running totals, percent of total, etc. You can use a quick table calculation using builtin calculations and preset configs, can manually configure calculations, and can build complex custom table calculations. 
+
+List of quick table calculations:, Running Total, Difference, Percent Difference, Percent of Total, Rank, Percentile, Moving Average, YTD Total, YTD Growth, Compound Growth Rate, Year Over Year Growth. 
+
+For difference calculation, you can hide or filter the null value, or show null data at default position. 
+
+Scope refers to the segment of the data to which the calculation is applied. We can apply a table calculation to the values within a table, a pane (such as Category and Sub-Category), or a cell. Direction refers to whether the calculation is applied and computed across or down the defined scope. You can opt to show Row and/or Column Grand Totals. 
+
+Table calculations are continuous measures by default, and continuous measures always display to the right of dimensions on a shelf, so we needed to convert the field from continuous to discrete before we could place it between dimensions on the shelf.
+
+In the table calculation window, when selected, Show calculation assistance uses highlighting and numbering to demonstrate how the calculation is being computed. 
+
+Table calculations are not automatically added to the Data pane, but you can save it manually by dragging it into the data pane and give it a name. Note that, when you use this field, it’s dependent on the other fields in the view, so it may need modification.
 
 ## 🏷 Create Level of Detail (LOD) expressions
 
 ## 🏷 Apply analytics
+### Reference Lines and Bands
+You can add reference lines, reference bands, distribution bands, and box plots to identify specific values or ranges on a continuous axis. You are able to create an unlimited number of reference lines, reference bands, distributions, and box plots.
+
+### Parameters
+
 
 ## 🏷 Connect to multiple data sources
 You can also connect to multiple data sources at a time and use relationships, joins, unions, and blends to work with the data. 
