@@ -326,9 +326,53 @@ Table calculations are not automatically added to the Data pane, but you can sav
 You can add reference lines, reference bands, distribution bands, and box plots to identify specific values or ranges on a continuous axis. You are able to create an unlimited number of reference lines, reference bands, distributions, and box plots.
 
 ### Parameters
+A parameter is like a variable in an equation, where the value can be controlled by the end user. It could be anything, such as a number, date, or string that can replace a constant value in a calculation, filter, set, or reference line. 
+
+For example, you may create a calculated field that returns True if Sales are greater than $2000 and otherwise returns False. You can replace the constant value of “2000” in the formula with a parameter. Then, using the parameter control, users can dynamically change the threshold in your view.
+
+Parameters let you 
+- Dynamically modify values in a calculation. 
+- Customize filters (for top N filter, N can be a parameter). 
+- Dynamically modify a reference line, band, or box. 
+
+Parameters vs filters:
+
+| Parameters | Filters |
+| ----------- | ----------- |
+| Able to select from a set of variables | Show a subset of the data |
+| Unable to select multiple values | Able to select multiple values |
+| Faster | Slower |
+| Can be used in a calculated field | Cannot be used in a calculation |
+| Support multiple datatypes | Do not support multiple datatypes |
+
+Dynamic parameters updates automatically, and you can
+- Link a data source field to the parameter’s list of values, so Tableau will pull the most up-to-date field values every time a user opens the workbook.
+- Specify what the parameter’s current value should be when the workbook opens. 
+
+Note that for dynamic parameters:
+- The order in which dynamic parameters are populated is based on the default sort of the field. Default is the data source order. If you want new values to fill in at the bottom rather than alphabetically, set the default sort to manual.
+- When setting the value to a calculated field, the calculation should be viz-independent. Also if using a Fixed LOD calculation, it cannot be a nested LOD calculation.
+
+### Histograms (show distribution)
+A histogram groups values together into buckets/bins that you define.
+
+### Box & Whisker Plots (show distribution)
+histograms show only one distribution of data along an axis; box & whisker plots are useful to compare multiple distributions of the data - they group values into four quartiles, with:
+- the middle two quartiles constituting the "box" 
+- the upper and lower quartiles located near the top and bottom as "whiskers".
+
+Note that the IQR (InterQuartile Range) captures data that's 1.5 times the middle 50% of data, which sometimes results in values outside the whisker. Therefore it is a good plot for seeing outliers. 
+
+## 🏷 Multiple data sources
+### Relationships between tables
 
 
-## 🏷 Connect to multiple data sources
+
+### Join tables
+
+### Union tables
+
+### Blend multiple data sources
 You can also connect to multiple data sources at a time and use relationships, joins, unions, and blends to work with the data. 
 
 ## 🏷 Create dashboards
