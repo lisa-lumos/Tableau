@@ -364,13 +364,45 @@ histograms show only one distribution of data along an axis; box & whisker plots
 Note that the IQR (InterQuartile Range) captures data that's 1.5 times the middle 50% of data, which sometimes results in values outside the whisker. Therefore it is a good plot for seeing outliers. 
 
 ## 🏷 Multiple data sources
+There are many ways to combine data in Tableau. Relationships are the default method. 
 ### Relationships between tables
+Relationships are a dynamic, flexible way to combine data from multiple tables for analysis. They are the default way to work with data from multiple tables in Tableau and are created directly on the Data Source canvas. When drag tables out of the sheets pane, Tableau will automatically relate the tables if there is a common field name. You can hover over the relationship line for details. Relationships can be edited after creation. 
 
+You can view fields and data of each table in the data source page, or in the data pane of a worksheet. 
 
+In the data pane of a worksheet, tableau automatically generates a row count for each table. Other automatically generated fields include Latitude and Longitude (if applicable), and Measure Name and Measure Values. You can choose to group by Data Source Table (default), or by Folder (hides the table name). 
+
+Relationships in Tableau Cloud and Tableau Server: 
+- You can't edit relationships/joins after publishing a data source.
+- You can't define new relationships/joins between published data sources.
+
+Relationships use correct aggregations with no data duplication: Tableau uses relationships to generate correct aggregations and build a query that uses appropriate joins during analysis, based on the current context of the fields in use in a worksheet. The key is “current context.” Use relationships to avoid the data duplication that can sometimes occur when joins are used.
 
 ### Join tables
+There are four types of joins we can do in Tableau: inner (default), left, right, and full outer. 
+
+Joins are created in the physical layer of the Tableau data model.
+
+When you drag a table to the canvas, you are creating a Tableau data model. The data model has two layers: 
+- The default view that you first see in the Data Source page canvas is the logical layer of the data source. You combine data in the logical layer using relationships (or noodles). Think of this layer as the `relationships canvas` in the Data Source page. 
+- The next layer is the physical layer. You combine data between tables at the physical layer using joins (and unions). Each logical table contains at least one physical table in this layer. Think of the physical layer as the `joins canvas` in the Data Source page.
+
+To create, view, or edit joins in Tableau, you must open the physical layer. To open a logical table to see it in the physical layer, double-click it.
+
+Joining data with different aggregations or levels of detail can cause data duplication. 
 
 ### Union tables
+
+
+
+
+
+
+
+
+
+
+
 
 ### Blend multiple data sources
 You can also connect to multiple data sources at a time and use relationships, joins, unions, and blends to work with the data. 
