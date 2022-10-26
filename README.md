@@ -422,10 +422,35 @@ Linking fields can be established manually: When a primary data source has been 
 If there are no link icons on the secondary data source, you can help Tableau establish the link manually.  
 
 ## 🏷 Create dashboards
+A dashboard is a collection of several views to explore relationships in data. When you modify a sheet, any dashboards containing it change, and vice versa.  This is because data in sheets and dashboards is connected. 
 
+Considerations for planning a dashboard: 
+- Knowing and understanding the audience for your dashboard will influence both the content you include and how you present it. Your intended audience will help you to determine which chart types to use, how you arrange the charts on the dashboard, the level of detail you provide, and the level of interaction you build in.
+- Consider what the key takeaways are for your audience. Make sure that your dashboard is simple and only includes relevant information, leads with the most important data, provides interactivity so that users can find their own answers and insights, and uses consistent design, language, and color scheme.
+- The best visualizations have a clear purpose and work for their intended audience. Are you presenting a conclusion or a key question? Is it to inform your users? Is it to explore the data? Understanding the purpose of a dashboard is crucial in knowing what information to include, and what to exclude.
+- Are users going to view the dashboard on different size devices, such as a desktop, laptop, tablet, and phone? If the dashboard will be used on a small device, consider what device-specific composition and content changes will be needed. The more you customize the dashboard to the viewing device, the more you will enhance users’ experience. Will users want to print a dashboard, for example, as a pdf to take to a meeting or look at offline? Depending on the audience and purpose, consider which charts or elements need to be interactive and which could be static.
+
+You can use the settings in the Dashboard and Layout panes to customize your dashboard.
+
+You can hide and unhide sheets/all-sheets from the tab. Show/Hide button lets you toggle the visibility of floating containers. It's possible to reorder floating objects on a dashboard. You can evenly distribute a layout container's items.
+
+Tableau provides many interactive features in dashboards that allow users to explore a dashboard and ask questions of the data (highlighting and filtering, etc.).
+
+You can use highlights to call attention to marks of interest and enable users to explore your dashboard further.  
+
+Filters can be applied to individual worksheets in a dashboard or to all sheets in a dashboard. 
 
 ### Actions
+Actions are a feature of dashboards that allow users to interact directly with data in the view and access related web-based content. Actions require a source sheet, where the user interacts to run the action. Some actions also use a target sheet, where the results of the action are displayed.
 
+Action types:
+- Filter action: guide analysis by using the data from one view to filter data in another. Sends information from a selected mark to another sheet showing related information. (Behind the scenes, it act as filters to the target sheet). Is the most commonly-used action on a dashboard - gives added control to users, enabling drill-down capability between views. 
+- Highlight action: call attention to marks of interest by retaining color for specific marks and dimming the rest. You can highlight marks by manually select them, using legend, using the highlighter, or create an advanced highlight action.
+- Go to Sheet action: simplify navigation to other worksheets/dashboards/stories.
+- Go to URL action: create hyperlinks to external resources, such as a web page, email link, or a file.
+- Parameter and set actions: Parameter actions let your audience change a parameter value through direct interaction with a viz, such as clicking or selecting a mark. Set actions let users change the set by directly interacting with marks on a viz.
+
+You can run an action using: Hover (good for highlight), Select (good for everything except URL) or Menu (good for URL actions). 
 
 ### Refine a Dashboard
 
