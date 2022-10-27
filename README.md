@@ -453,11 +453,34 @@ Action types:
 You can run an action using: Hover (good for highlight), Select (good for everything except URL) or Menu (good for URL actions). 
 
 ### Refine a Dashboard
+Placement and layout: 
+- Decide which worksheets you want to include in your dashboard and make sure that each worksheet you want to use has a title. 
+- Layout containers allow you to set the orientation of the items in your dashboard. 
+- You can use non-worksheet objects to further customize your dashboard. (Text, Image, Web Page, Navigation, Extension, Export)
+- To save space or improve its proximity to another item, you can float a view, filter, legend, text, image, web page, or even a layout container. 
+- Add white space by a blank container, or adjusting either the outer or inner padding of a view, container, or object.
+- After you have built a dashboard, you can create layouts that are specific to particular devices. As the author, you only have to create a single dashboard and deliver a single URL.
+
+Instructional clarity:
+- For filters, change title from Region to Select a Region
+- Add text boxes with instructions
+- Use a common font color, size and style 
+- Sparingly, use annotations to call attention to interesting data points.
+
+Improve appearance and readability: 
+- When using crosstabs, don't use Fit Entire View; use a combination of a scroll bar and either Fit Width or Fit Height.
+- The quickest way to make a fast, large-scale change to all the titles in your dashboard is to change them at the workbook level. 
+- Customize tooltips
+- To to reveal more details without cluttering, consider using a view in the tooltip (can set the size, format tooltip text, ). The viz in the tooltip is a static image. 
+- You can add smooth animations (to avoid sudden jumps) to highlight changing patterns. Two options: Simultaneous (default, faster), or Sequential (Slower). Can be configured for entire workbooks or to individual sheets
+
+. 
 
 
-### Story telling with data
 
 ## 🏷 Create stories
+### Story telling with data
+A story is a sheet that contains a sequence of views and dashboards that work together to convey information. Each individual sheet in a story is called a story point. You can create stories to tell a data narrative, provide context, demonstrate how decisions relate to outcomes, or simply make a compelling business case. 
 
 ## 🏷 Share and publish content
 ### Publish workbooks
