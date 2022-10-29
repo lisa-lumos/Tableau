@@ -472,11 +472,7 @@ Improve appearance and readability:
 - The quickest way to make a fast, large-scale change to all the titles in your dashboard is to change them at the workbook level. 
 - Customize tooltips
 - To to reveal more details without cluttering, consider using a view in the tooltip (can set the size, format tooltip text, ). The viz in the tooltip is a static image. 
-- You can add smooth animations (to avoid sudden jumps) to highlight changing patterns. Two options: Simultaneous (default, faster), or Sequential (Slower). Can be configured for entire workbooks or to individual sheets
-
-. 
-
-
+- You can add smooth animations (to avoid sudden jumps) to highlight changing patterns. Two options: Simultaneous (default, faster), or Sequential (Slower). Can be configured for entire workbooks or to individual sheets. 
 
 ## 🏷 Create stories
 ### Story telling with data
@@ -484,11 +480,28 @@ A story is a sheet that contains a sequence of views and dashboards that work to
 
 ## 🏷 Share and publish content
 ### Publish workbooks
+You can use Tableau Desktop or web authoring to publish new workbooks to Tableau Server or Tableau Cloud. You can choose which sheets or all sheets to include, decide whether the data is embedded in the workbook or published separately, show sheets as tabs, show selections, include external files. 
+
+Dashboard extensions includes sandboxed and network enabled ones. You can use an extension to:
+- Integrate with third-party APIs inside the dashboard.
+- Use third-party charting libraries like D3 to add custom visualizations.
+- Enable write-back functionality, so that users can modify data in a viz and have that change automatically update the source data.
+- Provide custom viz and interactivity types, such as a filter replacement with a custom interface.
+
+You can also create your own extensions using the Tableau Extensions API, a JavaScript library that you link to from your web application.
 
 ### Export and download content
+At times, however, you may need to work with or share your data insights offline. Perhaps you want to save your findings in a local workbook that you can use while traveling, or you want to engage with the added functionality provided with Tableau Desktop. 
 
+When a workbook is published, the version is same with source tableau version. But if it is modified, then it becomes the version of the modifier tableau version. 
 
+Tableau Desktop version is backward compatible. 
 
+You can generate a snapshot in one of the following formats: Image, PDF, or PowerPoint.
+
+There are two types of snapshots that you can generate for your workbook data: 
+- The underlying data for the workbook or a view
+- A crosstab, which is a structured output format that generally retains the format of the view
 
 
 
