@@ -31,6 +31,30 @@ The `Columns and Rows shelves` let you drop fields to create structure of viz.
 
 The `Marks card` let you drop fields to add context and detail to the viz, such as setting mark type, color, size, shape, text, and detail. 
 
+### Data Interpreter
+Data Interpreter can automatically detect and bypass the titles, notes, footers, and empty cells in a data source. Use Data Interpreter to prepare data in files, including those in Microsoft Excel, CSV, PDF, and Google Sheets format. It does not change the underlying data source. Data Interpreter can detect additional tables and sub-tables so that you can work with a subset of the data independently. 
+
+For detail on the field names and values Data Interpreter included or excluded, click Review the results. Then a copy of your data source opens in Microsoft Excel, showing the Key for the Data Interpreter tab.
+
+When Data Interpreter is not available:
+- The data source is already in a format that Tableau can interpret: If Tableau doesn't need extra help from Data Interpreter to handle unique formatting or extraneous information, the Data Interpreter option is not available.
+- The Data Interpreter option is not available when the data set exceeds Data Interpeter’s maximum number of columns and rows.
+- Data Interpreter is only available for supported file types, such as Microsoft Excel files (.xls or .xlsx format), text files(.csv format), PDF files, and Google Sheets.
+
+Data Interpreter is an excellent shortcut, and works in many situations, but if the results aren't as expected, you may need to directly address the data file you bring into Tableau to ensure it's in the correct format.
+
+After using Data Interpreter, you might still need to perform some additional restructuring steps like pivoting your data or splitting fields to get the data in the shape you want. 
+
+### Pivot data in the data grid
+Tableau works best when analyzing data in a “tall” or “narrow” table structure. If the data you’re working with has a “wide” structure (the information is captured with many columns, and the columns contain similar information), you can use a pivot to change the columns into rows. Changing the structure in Tableau does not change your underlying source data.
+
+### Split data fields
+Use the Split (automatically choose delimiter) or Custom split (manually choose delimiter, and which substrings to include) options in Tableau to separate the values based on a delimiter or a repeated pattern of values present in each row of the field. Split and Custom Split create calculated fields. Split and custom split options are available only for fields that are a String data type.
+
+In Tableau Cloud and Tableau Server, Split and Custom Split are not available as menu options, but it’s possible to achieve the same result by creating a calculated field with a formula that uses the SPLIT function, similar to the one shown above. 
+
+New fields generated from a split or custom split cannot be used in a pivot.
+
 ## 🏷 Customize data source
 Could do cleanup and organization as you work with the underlying source data, include customizations like `connection information`, `organizational or metadata changes`, `attributes`, or `aliases`. Tableau Desktop allows us to `save these data source customizations for reuse`. It preserves the customizations you make, but it does not change the underlying source data.
 
@@ -159,7 +183,7 @@ When creating an extract, filter out irrelevant data.
 Reduce the amount of data being fed into Tableau. Can be used to filter out sensitive data from data source. For systems that rely heavily on partitions or indexing, data source filters may yield tremendous control over the performance of queries issued by Tableau. 
 
 - **Context filters**
-All filters in Tableau are computed independently. Context filter is processed first. If you have two dimension filters, one on Region and another top 3 on products, both filters will apply to the entire data set, e.g: product A, D, F are globally top 3, but only A lives through the region filter, so the final result will show only product A. If you want to see the top 3 products in each region, need to set Region as the context filter, in this way, product A, B, C might be the top 3 and all will show up. Context filters are greyed out in the filter pane. 
+All filters in Tableau are computed independently. Context filter is processed first. If you have two dimension filters, one on Region and another top 3 on products, both filters will apply to the entire data set, e.g: product A, D, F are globally top 3, but only A lives through the region filter, so the final result will show only product A. If you want to see the top 3 products in each region, need to set Region as the context filter, in this way, product A, B, C might be the top 3 and all will show up. Context filters are greyed out in the filter pane.You may also create a context filter to improve performance. You can further improve performance of context filters on large data sources by: Use a single context filter; Complete all of your data modeling before creating a context (Changes in the data model, such as converting dimensions to measures, require recomputing the context); Set up context filters before adding fields to shelves.
 
 - **Dimension filters**
 Dimensions contain discrete categorical data, so filtering it involves selecting the values to include or exclude. For example, use a dimension filter to show sales in specific regions.
