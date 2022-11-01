@@ -55,6 +55,22 @@ In Tableau Cloud and Tableau Server, Split and Custom Split are not available as
 
 New fields generated from a split or custom split cannot be used in a pivot.
 
+### Replace a data source for a view
+If the original and new data sources have identical field names, after you replace the data source, the views in the workbook will work just as they did when they used the original data source, but will display the values in the new data source.
+
+If there are differences between the original and new data sources, you can resolve issues after replacing a data source. However, it’s usually quicker to prepare the data sources first, replace the data source, and then fix remaining issues, if any. Ref: `https://tabsoft.co/repcovid19ds`. 
+
+The goal of preparing the data sources is to make them as identical as you can, to make data source replacement smoother. Ideally, the new data source would have the same fields, with the same field names, data types, and so on, as the original data source. 
+
+To resolve different field names, rename them in the data pane. Similar to data types. 
+
+After you replace a data source, if there is an exclamation mark to the right of a field in the Data pane, as in the following animation, that field has errors to resolve. You could Replace References to solve it. 
+
+
+
+
+
+
 ## 🏷 Customize data source
 Could do cleanup and organization as you work with the underlying source data, include customizations like `connection information`, `organizational or metadata changes`, `attributes`, or `aliases`. Tableau Desktop allows us to `save these data source customizations for reuse`. It preserves the customizations you make, but it does not change the underlying source data.
 
