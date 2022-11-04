@@ -363,6 +363,10 @@ In the table calculation window, when selected, Show calculation assistance uses
 
 Table calculations are not automatically added to the Data pane, but you can save it manually by dragging it into the data pane and give it a name. Note that, when you use this field, it’s dependent on the other fields in the view, so it may need modification.
 
+To add a customized table calculation, click the drop-down arrow on a measure field in the view and select Add Table Calculation to open the Table Calculation dialog box.
+
+When you add a table calculation, Tableau automatically selects which dimensions define the scope and which define the direction. However, if you want to control which dimensions define the scope and which define the direction, use the Specific Dimensions option. This option will lock in the scope and direction regardless of the table structure.
+
 ## 🏷 Create Level of Detail (LOD) expressions
 
 ## 🏷 Apply analytics
