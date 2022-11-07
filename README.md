@@ -368,6 +368,22 @@ To add a customized table calculation, click the drop-down arrow on a measure fi
 When you add a table calculation, Tableau automatically selects which dimensions define the scope and which define the direction. However, if you want to control which dimensions define the scope and which define the direction, use the Specific Dimensions option. This option will lock in the scope and direction regardless of the table structure.
 
 ## 🏷 Create Level of Detail (LOD) expressions
+Level of detail (LOD) refers to the aggregation or granularity of the data. LOD expressions allow you to determine the levels of detail used in a calculation without actually dropping those dimensions into the visualization. LOD uses keywords to perform calculations at a more granular level (INCLUDE), a less granular level (EXCLUDE), or an entirely independent level (FIXED).
+
+For example, to see sales percentage of one country in global sales, [sales] / sum([sales]), but if only want to see sales percentage of this country in north america (regional), then use [sales] / {FIXED [Region]:sum([sales])}. 
+
+FIXED LOD expressions compute a value using the specified dimensions, without reference to the dimensions in the view. Example: Compute the sum of sales per region: {FIXED [Region] : SUM([Sales])}
+
+INCLUDE LOD expressions compute values using the specified dimensions in addition to dimensions in the view. Use it when you want to calculate at a fine LOD in the database and then re-aggregate and show at a coarser LOD in your view. Fields based on INCLUDE LOD calculations will change as you add or remove dimensions from the view. Example: The following INCLUDE LOD expression computes total sales per customer: { INCLUDE [Customer Name] : SUM([Sales])}
+
+EXCLUDE LOD expressions declare dimensions to omit from the view LOD. Use it for ‘percent of total’ or ‘difference from overall average’ scenarios. It cannot be used in row-level calculations (where there are no dimensions to omit), but can be used to modify either a view level calculation. You can use an EXCLUDE calculation to remove a dimension from some other level of detail expression. Example: Compute the average sales total per month and then excludes the month component: { EXCLUDE [Order Date (Month / Year] : AVG ({ FIXED [Order Date (Month / Year] :  SUM([Sales])})}
+
+
+
+
+
+
+
 
 ## 🏷 Apply analytics
 ### Reference Lines and Bands
