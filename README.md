@@ -376,10 +376,11 @@ FIXED LOD expressions compute a value using the specified dimensions, without re
 
 INCLUDE LOD expressions compute values using the specified dimensions in addition to dimensions in the view. Use it when you want to calculate at a fine LOD in the database and then re-aggregate and show at a coarser LOD in your view. Fields based on INCLUDE LOD calculations will change as you add or remove dimensions from the view. Example: The following INCLUDE LOD expression computes total sales per customer: { INCLUDE [Customer Name] : SUM([Sales])}
 
-EXCLUDE LOD expressions declare dimensions to omit from the view LOD. Use it for ‘percent of total’ or ‘difference from overall average’ scenarios. It cannot be used in row-level calculations (where there are no dimensions to omit), but can be used to modify either a view level calculation. You can use an EXCLUDE calculation to remove a dimension from some other level of detail expression. Example: Compute the average sales total per month and then excludes the month component: { EXCLUDE [Order Date (Month / Year] : AVG ({ FIXED [Order Date (Month / Year] :  SUM([Sales])})}
+EXCLUDE LOD expressions declare dimensions to omit from the view LOD. Use it for ‘percent of total’ or ‘difference from overall average’ scenarios. It cannot be used in row-level calculations (where there are no dimensions to omit), but can be used to modify either a view level calculation. You can use an EXCLUDE calculation to remove a dimension from some other LOD expression. Example: Compute the average sales total per month and then excludes the month component: { EXCLUDE [Order Date (Month / Year] : AVG ({ FIXED [Order Date (Month / Year] :  SUM([Sales])})}
 
-
-
+In Tableau, cohort analysis is a common use of FIXED LOD expressions. A cohort refers to a group that shares common characteristics over a period of time: for example, customers who purchased their first items on the same date; students who graduated college in the same year; or patients in a pharmaceutical trial who received the same dosage of a drug at the same time. So, instead of looking at the entire data set, it is broken into related groups. Cohorts help data analysts detect changes in trends and determine the outcomes that are associated with the cohort. e.g.:
+- {FIXED [CustomerID] : MIN([Order Date])} Creates a calculated field to show the first time a customer made a purchase.
+- {FIXED [Country] : SUM([Confirmed Cases])} Creates a calculated field to show each country’s total confirmed cases.
 
 
 
@@ -426,6 +427,14 @@ histograms show only one distribution of data along an axis; box & whisker plots
 - the upper and lower quartiles located near the top and bottom as "whiskers".
 
 Note that the IQR (InterQuartile Range) captures data that's 1.5 times the middle 50% of data, which sometimes results in values outside the whisker. Therefore it is a good plot for seeing outliers. 
+
+### Trend lines and forecasts
+You can use trend lines to make predictions about your data.
+
+You can build forecasts in your views using Tableau Desktop. Tableau Desktop provides built-in statistical models to forecast your data, including models that account for seasonality and trends. 
+
+### User parameters to swap measures
+
 
 ## 🏷 Multiple data sources
 There are many ways to combine data in Tableau. Relationships are the default method. 
