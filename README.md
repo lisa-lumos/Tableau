@@ -1,7 +1,7 @@
 # Tableau Summary
 This file is a summary of Tableau features (`what it can do`). I have used Tableau for around a year (since Oct 2021), now I am summing it up. This file is mainly intended for Tableau Desktop. 
 
-This file will be updated daily until complete.
+This file will be updated regularly until complete.
 
 ## 🏷 Connect to data
 Tableau supports connecting to `hundreds of data sources`, including a number of different `flat file types` as well as a wide range of `server-based data sources`. E.g., to your computer in a spreadsheet or a text file, or in a database on a server. 
@@ -313,6 +313,8 @@ For a filled map, use the following building blocks in the Tableau workspace:
 You can resolve ambiguous geocoded location data by: Specifying the Country/Region and/or State/Province for your data.
 
 A filled map shows ratio or aggregated data in shapes known as polygons. The polygons can be countries, regions, states, or almost any area that can be geocoded in Tableau. (An exception is cities, which won't allow for a filled area.) The distribution you specify for the color of the polygons (gradients vs. stepped, and the number of steps) highly affects how people interpret your data. To make the variation more apparent, reduce the number of visible color shades on the map. The level of detail you specify in a filled map determines the patterns you want to see in the data. To simplify the pattern, aggregate up to a higher level of detail. To make smaller trends more visible, aggregate down to a lower level of detail. 
+
+You could customize Tableau's Geocoding. You could also plot data on a custom background. 
 	
 ### Density Maps
 A density map shows the frequency of marks in an area. By grouping overlapping marks, and color-coding them based on the amount of overlap, you can create a density map to reveal trends.
@@ -417,6 +419,8 @@ Dynamic parameters updates automatically, and you can
 Note that for dynamic parameters:
 - The order in which dynamic parameters are populated is based on the default sort of the field. Default is the data source order. If you want new values to fill in at the bottom rather than alphabetically, set the default sort to manual.
 - When setting the value to a calculated field, the calculation should be viz-independent. Also if using a Fixed LOD calculation, it cannot be a nested LOD calculation.
+
+You can use parameters to swap measures in a view. If you're working with a data source that's got a lot of data, you may find yourself in a situation where the audience for the data would benefit from having it presented in one interactive view, rather than spread between multiple views. 
 
 ### Histograms (show distribution)
 A histogram groups values together into buckets/bins that you define.
@@ -564,6 +568,9 @@ Improve appearance and readability:
 - Customize tooltips
 - To to reveal more details without cluttering, consider using a view in the tooltip (can set the size, format tooltip text, ). The viz in the tooltip is a static image. 
 - You can add smooth animations (to avoid sudden jumps) to highlight changing patterns. Two options: Simultaneous (default, faster), or Sequential (Slower). Can be configured for entire workbooks or to individual sheets. 
+
+### Navigate between dashboards
+
 
 ## 🏷 Create stories
 ### Story telling with data
