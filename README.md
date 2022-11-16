@@ -570,6 +570,26 @@ Improve appearance and readability:
 - You can add smooth animations (to avoid sudden jumps) to highlight changing patterns. Two options: Simultaneous (default, faster), or Sequential (Slower). Can be configured for entire workbooks or to individual sheets. 
 
 ### Navigate between dashboards
+We can have a Summary dashboard for the organization, which often generates questions that require more detailed information, we then can switch to the Details dashboard to answer them. 
+
+We can add a dashboard filter action to the workbook, and use it to create a navigation link from the Summary dashboard to the Details dashboard, that also applies the filter from the former to the latter. We can also add a navigation button on the Details dashboard that goes back to the Summary dashboard. 
+
+### Containers
+Two main types of layout container are Horizontal and Vertical. A horizontal container keeps your objects arranged horizontally next to each other, whereas a vertical container keeps your objects stacked vertically on top of one another.
+
+A container is either Tiled or Floating. Tiled items don't overlap. 
+
+Layout containers can give dashboard viewers the ability to show or hide the container with the click of a button. 
+
+By collecting filters and parameters in a container that has a Show/Hide button, you can enhance dashboard functionality without the filters taking up limited dashboard space.
+
+What if you want to add supplementary instructions to a dashboard to enhance usability, but there isn’t enough room? Solution: Add instructions as a transparent overlay so viewers can toggle on or off as needed.
+
+As a best practice, customize the Show/Hide button to best suit how you want the dashboard user to interact with the container. There are two options to choose from: a custom Text Button or a custom Image Button.
+
+
+
+
 
 
 ## 🏷 Create stories
