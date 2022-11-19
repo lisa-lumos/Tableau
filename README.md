@@ -286,6 +286,15 @@ You can build word clouds and packed bubble charts from tree maps by changing th
 
 Bar-in-bar charts and bullet graphs have a similar goal: to compare two values in a bar chart-style view. In a bar-in-bar chart, you're usually comparing two measures against one another. In a bullet graph, you're usually comparing a measure against a goal or threshold which is a reference line, and can have reference bands. Both the bar-in-bar chart and the bullet graph are derived from the side-by-side bar chart, but the former two are visually less crowded and more direct—making the information easier to see and understand.
 
+### Custom Color and Shape Palettes
+You might create a custom color palette so marks in your views use the colors adopted by your organization or occupation. There are three types of color palettes: categorical, sequential, and diverging. 
+
+Tableau Desktop: For workbooks with Excel and text file-based data sources that are saved as Tableau packaged workbooks, meaning .twbx files, the custom color palette information is embedded in the workbook, so you can share the workbooks with other people in Tableau Desktop, and the custom colors on the marks will display as they did for you. The palettes are also available to other users, in the Edit Colors dialog box, to assign to views they create in the workbook.
+
+Tableau Cloud/Tableau Server: After you publish a workbook that uses custom color palettes, when other people create workbooks in Tableau Cloud or Tableau Server, the palettes won’t be available to them in the Edit Colors dialog box, and they therefore can’t use the colors in the custom palettes or assign the custom palettes to views in workbooks.
+
+You can create a custom shape palette in Tableau Desktop so marks in your views use more intuitive shapes, such as the shape of traffic signs for data related to traffic planning.
+
 ## 🏷 Map geographic data
 ### Symbol and Filled maps
 Two map types in Tableau: `symbol maps` (uses symbols to represent a central point of a geographic region, effective for showing quantitative data for individual locations,  work best with data containing large variations of values) and `filled maps` (shows boundaries of a geographic region, filled with color, ideal for showing ratio data). 
@@ -586,11 +595,6 @@ By collecting filters and parameters in a container that has a Show/Hide button,
 What if you want to add supplementary instructions to a dashboard to enhance usability, but there isn’t enough room? Solution: Add instructions as a transparent overlay so viewers can toggle on or off as needed.
 
 As a best practice, customize the Show/Hide button to best suit how you want the dashboard user to interact with the container. There are two options to choose from: a custom Text Button or a custom Image Button.
-
-
-
-
-
 
 ## 🏷 Create stories
 ### Story telling with data
