@@ -525,6 +525,9 @@ Like renaming fields to help Tableau identify linking fields, in some circumstan
 
 use the ZN function to replace null values with zeros. 
 
+### Filtering across data sources
+When working with multiple data sources in a workbook, you can filter on a common field to compare the data between them. To enable filtering across multiple data sources, you need to establish a relationship between them. 
+
 ## 🏷 Create dashboards
 A dashboard is a collection of several views to explore relationships in data. When you modify a sheet, any dashboards containing it change, and vice versa.  This is because data in sheets and dashboards is connected. 
 
@@ -625,18 +628,44 @@ There are two types of snapshots that you can generate for your workbook data:
 - The underlying data for the workbook or a view
 - A crosstab, which is a structured output format that generally retains the format of the view
 
+### Publish and manage data sources and extracts
+A published data source is one that has been published to Tableau Server/Cloud, and contains one or more reusable connections to data. With a published data source, a server or site administrator can control the permissions for use of the data source, which provides essential data security and oversight.
 
+Other benefits of a published data source: 
+- Establishes a central location for connecting to your data.
+- Makes a data source reusable & shareable.
+- Establishes a "centralized version of the truth" for the data.
+- Makes widely available the changes and updates that authors make to the Data pane (such as calculations, sets, groups, hierarchies, and aliases).
+- Frees each client from having to download and install database drivers—connecting to data occurs at the server level.
+- Uses either live data or data extracts that can be refreshed on a schedule.
+- Increases server efficiency by pooling data connections.
+- Available for web authors to create a new workbook / add to an existing workbook for blending.
 
+A `Tableau data source file`, saved in a .tds file format, is a published data source that stores `data connection information` and any `metadata changes` you've made to it. "Data connection information" is all the information required to make a live connection to an external—that is, external to Tableau Server—data source. Thus, a Tableau data source file `allows many users to connect to external data sources and have the same experience, with the same metadata settings`. 
 
+An `extract file`, saved in a .hyper file format, is a published data source that contains a snapshot of the data from one or more external data sources. Tableau creates this snapshot by storing extracted data in columns instead of rows. This columnar data structure makes reading and writing data highly efficient, while also enabling compression for faster columnar operations (such as MIN or MAX). You can set up the extract to refresh on a set schedule. 
 
+`Embedded data sources`: Unlike a published data source, which is either a connection to or extract from an external data source, an embedded data source is one that is `part of a workbook that has been published to Tableau Server or Tableau Cloud`. An embedded data source does not exist as a separate object that can be reused by others on the server; users can only access the workbook that contains the embedded data source. You need to specifically publish a data source to share it as a data source. Because an embedded data source exists only within the workbook, it does not have its own page on Tableau Server or Tableau Cloud. Only a published data source can have a separate and distinct page on the server. However, users can view a list of embedded data sources on the Data Sources page by filtering to show either all data sources or just those embedded in workbooks.
 
+Best practices: When sharing data, you want the data to be as clear, clean, and efficient as possible for usability by others:
+- Prepare the data: Anticipate the types of questions users will want to answer, and use this to inform your data preparation. Then perform all necessary cleaning, combining, and shaping operations on the data.
+- Edit field settings: Assign default aggregations; Set up number formats; Geocode geographic fields; Create meaningful aliases for field values; Use comments to add field descriptions.
+- Organize and identify fields appropriately: Set up logical hierarchies; Organize fields into folders; Add relevant calculated fields; Differentiate attributes; 
+Avoid naming fields as values. 
 
+Remember that after you publish a data source, you'll no longer be able to rename it directly. Instead, you must publish the renamed copy, and then update all workbook connections.
 
+For your published data source, consider providing lineage information about it. Data lineage identifies where data has come from and the transformations it has gone through over time. This kind of history is particularly helpful for administrators as they monitor and maintain data sources on a site. Creator site roles might help in that effort by providing certain details about their published data sources—details that could also be helpful to other users of the data sources. 
 
+`Tableau Catalog`, which is available in the Data Management Add-on to Tableau Server and Tableau Cloud, automatically discovers and indexes all of the content on the server, including workbooks, data sources, sheets, and flows. It uses indexing to gather information about the metadata, schemas, and lineage of the content. The lineage feature in Tableau Catalog indexes both internal and external content.
 
+The process for publishing a data source varies depending on whether you use Tableau Desktop or web authoring, publish to Tableau Server or Tableau Cloud, and work with a live data source or an extracted, in-memory data source. 
 
+When you are working with extract refreshes, there are two main areas to be concerned with: Scheduling extract refreshes and handling extract refresh failures. Sometimes, something goes wrong with an extract refresh, resulting in an extract refresh failure. If your scheduled refresh fails five consecutive times, Tableau suspends it. When a refresh is suspended, Tableau does not try to run it again until someone corrects the cause of the failure. After you make the correction, run the extract refresh again. 
 
-
+An extract refresh failure results in two actions by Tableau:
+- You'll see an alert icon appear in the Notifications menu at the top-right corner of the user interface (UI).
+- As the owner of the data source, you'll receive an email indicating that an extract refresh failure occurred.
 
 
 
