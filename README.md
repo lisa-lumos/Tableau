@@ -668,15 +668,22 @@ An extract refresh failure results in two actions by Tableau:
 - As the owner of the data source, you'll receive an email indicating that an extract refresh failure occurred.
 
 
+### Tableau Prep Builder
+In Tableau Prep Builder, both the data preparation operations you’ve performed in the flow and the data you’ve prepared can be published. 
 
+### Other stuff
+In addition to creating, running, and publishing flows and flow outputs from Tableau Prep Builder, you can work with flows on the web.
 
+Subscriptions: Subscribing to your favorite workbook or view helps you to keep current on the latest data updates.
 
+Sometimes you want to be notified as soon as something very specific happens in the data. For example, maybe you want to be notified as soon as your team hits its sales quota, or when a stock price drops below a certain dollar amount. If you want to be notified when your data reaches important thresholds like these, set a data-driven alert. When the data reaches the specified threshold, you will receive a subscription email which has several components:
+- The target threshold 
+- An image of the view
+- Links to manage the alert
 
+On a Tableau site, the best way to save your specific analysis is to create a custom view of your work. A custom view is a saved version of a view with your selections and filters applied. You can then use that custom view for yourself, and can optionally share your insights by making your custom view available to others. Custom views can be accessed only from the view itself and are not saved as distinct views from the original. 
 
-
-
-
-
+MWhat if you have important, individual numbers that you are trying to keep track of, such as total sales? Do you need to open the view each time you want to see the latest number? No, you can use a metric. Metrics provide a fast way to stay informed about your data. Metrics help you monitor changes to your data in a format that's easy to interpret at a glance. 
 
 
 
